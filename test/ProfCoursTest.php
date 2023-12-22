@@ -186,7 +186,7 @@ class ProfCoursTest extends TestCase
         *
         */
         $expectedCourseCount = count(self::$cours_a);
-        $actualCourseCount = Course::count($conn);
+        $actualCourseCount = Cours::count($conn);
         $this->assertEquals($expectedCourseCount, $actualCourseCount, "Adding courses...\n");
         $this->assertCount($actualCourseCount, self::$cours_a, "Adding courses...\n");
     }
