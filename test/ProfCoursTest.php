@@ -1,6 +1,8 @@
 <?php
 namespace Test;
 
+require __DIR__ . '/../vendor/autoload.php';
+
 use Cours;
 use PHPUnit\Framework\TestCase;
 use Prof;
@@ -20,13 +22,13 @@ class ProfCoursTest extends TestCase
 
     public static $conn = null;
     // Prof
-    private $prenom ="REVERGIE"; // a changer
-    private $nom ="TATSUM"; // a changer
-    private $date ="22/07/1984"; // a changer
-    private $lieu ="Toulouse, France"; // a changer
+    private $prenom ="ER"; // a changer
+    private $nom ="HA"; // a changer
+    private $date ="03/10/2000"; // a changer
+    private $lieu ="Paris, France"; // a changer
 
     // cours
-    private $intitule="Intégratoin continue"; //a remplir
+    private $intitule="Intégration continue"; //a remplir
     private $duree="3h";    //a remplir
 
     private static $prof_a = [];
@@ -56,21 +58,14 @@ class ProfCoursTest extends TestCase
                     self::$conn = null;
                     die("LE FICHIER ".self::SQL_FILE."EST INNEXISTANT.\n");
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
         }
 
         print "Création des variables. \n";
+        
         self::$prof_a = [
-            
-            
-            /**
-            *
-            * Question 6 : Insérer les enregistrements suivantes dans la table prof 
-            *
-            */
-            
             new Prof("Nom_prof1", "Prenom_prof1", "10/01/1982", "lieu_prof1"),      // idprof = 1
             new Prof("Nom_prof2", "Prenom_prof2", "10/02/1982", "lieu_prof2"),      // idprof = 2
             new Prof("Nom_prof3", "Prenom_prof3", "10/03/1982", "lieu_prof3"),      // idprof = 3
@@ -82,7 +77,15 @@ class ProfCoursTest extends TestCase
             new Prof("Nom_prof9", "Prenom_prof9", "10/09/1982", "lieu_prof9"),      // idprof = 9
             new Prof("Nom_prof10", "Prenom_prof10", "10/10/1982", "lieu_prof10")    // idprof = 10      ** A MODIFIER **
         ];
+        
+        /**
+        * Question 6 : Insérer les enregistrements suivantes dans la table prof 
+        */
+        foreach (self::$prof_a as $prof) {
+            $prof->add(self::$conn);
+        }
 
+        
         self::$cours_a = [
             new Cours("Cours1", "2", 1),       // idcours = 1
             new Cours("Cours2", "2.5", 3),     // idcours = 2
@@ -93,14 +96,14 @@ class ProfCoursTest extends TestCase
             new Cours("Cours7", "3", 5),       // idcours = 7   ** A SUPPRIMER **
             new Cours("Cours8", "4", 5),       // idcours = 8
             new Cours("Cours9", "3", 5),        // idcours = 9   ** A MODIFIER **
-            
-            /**
-            *
-            * Question 7 : Insérer les enregistrements suivantes dans la table cours
-            *
-            */
-
         ];
+        
+        /**
+        * Question 7 : Insérer les enregistrements suivantes dans la table cours
+        */
+        foreach (self::$cours_a as $cours) {
+            $cours->add(self::$conn);
+        }
         
     }
     

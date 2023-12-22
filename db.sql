@@ -22,6 +22,14 @@ CREATE TABLE IF NOT EXISTS `##DB_NAME##`.`prof` (
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
+-- Insertion des enregistrements dans la table prof
+-- -----------------------------------------------------
+INSERT INTO prof (nom, prenom, datenaiss, lieunaiss) VALUES
+('Nom_Prof1', 'Prenom_Prof1', '10/01/1982', 'lieu_prof1'),
+('Nom_Prof2', 'Prenom_Prof2', '10/02/1982', 'lieu_prof2'),
+('Nom_Prof3', 'Prenom_Prof3', '10/03/1982', 'lieu_prof3');
+
+-- -----------------------------------------------------
 -- Table `##DB_NAME##`.`cours`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `##DB_NAME##`.`cours` (
@@ -37,6 +45,14 @@ CREATE TABLE IF NOT EXISTS `##DB_NAME##`.`cours` (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Insertion des enregistrements dans la table cours
+-- -----------------------------------------------------
+INSERT INTO cours (intitule, duree, idprof) VALUES
+('IoT', '10', 1),
+('IA', '12', 3),
+('EDL', '5', 6);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
