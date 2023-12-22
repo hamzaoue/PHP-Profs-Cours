@@ -213,13 +213,22 @@ class ProfCoursTest extends TestCase
 
         
         // Cours
-        
+
         /**
         *
         * Question 9 : Dans la fonction « testPrintAll() », 
         * s’inspirer de test de la sélection et affichage des profs pour tester la sélection et l’affichage des cours.   
         *
         */
+        $recordCourseArray = Course::printAll($conn);
+        print "+++++++++++++++++++++ - LISTE DES COURS ET LEUR PROF - ++++++++++++++++++++\n";
+        foreach ($recordCourseArray as $recordCourse) {
+            print $recordCourse;
+        }
+        print "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n";
+        $this->assertCount(count(self::$cours_a), $recordCourseArray, "Nombre d'enregistrement égale pour Cours\n");
+
+        
          
   
         
