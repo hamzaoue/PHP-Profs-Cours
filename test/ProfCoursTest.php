@@ -217,6 +217,10 @@ class ProfCoursTest extends TestCase
         * s’inspirer de test de la sélection et affichage des profs pour tester la sélection et l’affichage des cours.   
         *
         */
+        $expectedCourseCount = count(self::$cours_a);
+        $actualCourseCount = Course::count($conn);
+        $this->assertEquals($expectedCourseCount, $actualCourseCount, "Adding courses...\n");
+        $this->assertCount($actualCourseCount, self::$cours_a, "Adding courses...\n");
   
         
     }
