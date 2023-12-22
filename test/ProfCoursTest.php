@@ -78,12 +78,7 @@ class ProfCoursTest extends TestCase
             new Prof("Nom_prof10", "Prenom_prof10", "10/10/1982", "lieu_prof10")    // idprof = 10      ** A MODIFIER **
         ];
         
-        /**
-        * Question 6 : Insérer les enregistrements suivantes dans la table prof 
-        */
-        foreach (self::$prof_a as $prof) {
-            $prof->add(self::$conn);
-        }
+        
 
         
         self::$cours_a = [
@@ -98,12 +93,7 @@ class ProfCoursTest extends TestCase
             new Cours("Cours9", "3", 5),        // idcours = 9   ** A MODIFIER **
         ];
         
-        /**
-        * Question 7 : Insérer les enregistrements suivantes dans la table cours
-        */
-        foreach (self::$cours_a as $cours) {
-            $cours->add(self::$conn);
-        }
+        
         
     }
     
